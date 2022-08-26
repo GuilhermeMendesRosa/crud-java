@@ -1,4 +1,4 @@
-<%@ page import="br.com.alura.manager.Empresa" %>
+<%@ page import="br.com.alura.manager.modelo.Empresa" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -17,8 +17,8 @@
         <ul>
             <c:forEach items="${empresas}" var="empresa">
                 <li>${empresa.nome} - <fmt:formatDate value="${empresa.dataDeAbertura}" pattern="dd/MM/yyyy"/>
-                    - <a href="/gerenciador/removeEmpresa?id=${empresa.id}">remover</a>
-                    - <a href="/gerenciador/mostraEmpresa?id=${empresa.id}">editar</a>
+                    - <a href="/gerenciador/removerEmpresa?id=${empresa.id}">remover</a>
+                    - <a href="/gerenciador/mostrarEmpresa?id=${empresa.id}">editar</a>
                 </li>
 
             </c:forEach>

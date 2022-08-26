@@ -8,8 +8,8 @@
     <title>Edita Empresa</title>
 </head>
 <body>
-<h1>NENSE</h1>
-    <form action="<c:url value="/editaEmpresa?id=${empresa.id}"/>" method="post">
+<h1>Editar</h1>
+    <form action="<c:url value="/editarEmpresa?id=${empresa.id}"/>" method="post">
         <input type="text" placeholder="nome" name="nome" required value="${empresa.nome}">
         <br>
         <input type="date" name="dataDeAbertura" required value="${empresa.dataDeAbertura}">

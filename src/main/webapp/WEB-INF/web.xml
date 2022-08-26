@@ -5,7 +5,7 @@
          version="4.0">
     <displayname>gerenciador</displayname>
     <welcome-file-list>
-        <welcome-file>bem-vindo.html</welcome-file>
+        <welcome-file>bem-vindo.jsp</welcome-file>
     </welcome-file-list>
 
 </web-app>

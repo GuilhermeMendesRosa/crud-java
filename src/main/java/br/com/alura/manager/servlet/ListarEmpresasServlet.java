@@ -1,4 +1,6 @@
-package br.com.alura.manager;
+package br.com.alura.manager.servlet;
+
+import br.com.alura.manager.modelo.Banco;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

@@ -1,10 +1,11 @@
-package br.com.alura.manager;
+package br.com.alura.manager.modelo;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class Banco {
+    //Objeto para simular um banco de dados
     private static List<Empresa> empresas = new ArrayList<Empresa>();
     private static  Integer chaveSequencial = 1;
 
