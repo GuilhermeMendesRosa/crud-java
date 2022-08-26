@@ -8,7 +8,7 @@
     <title>Cadastrar Nova Empresa</title>
 </head>
 <body>
-    <form action="<c:url value="/novaEmpresa"/>" method="post">
+    <form action="<c:url value="entrada?acao=NovaEmpresa"/>" method="post">
         <input type="text" placeholder="nome" name="nome" required>
         <br>
         <input type="date" name="dataDeAbertura" required>

@@ -9,16 +9,11 @@
     <title>Nova Empresa</title>
 </head>
     <body>
-        <h1>
-            <c:if test="${not empty empresa}">
-                Empresa criada com sucesso: ${empresa}
-            </c:if>
-        </h1>
         <ul>
             <c:forEach items="${empresas}" var="empresa">
                 <li>${empresa.nome} - <fmt:formatDate value="${empresa.dataDeAbertura}" pattern="dd/MM/yyyy"/>
-                    - <a href="/gerenciador/removerEmpresa?id=${empresa.id}">remover</a>
-                    - <a href="/gerenciador/mostrarEmpresa?id=${empresa.id}">editar</a>
+                    - <a href="/gerenciador/entrada?acao=RemoverEmpresa&id=${empresa.id}">remover</a>
+                    - <a href="/gerenciador/entrada?acao=MostrarEmpresa&id=${empresa.id}">editar</a>
                 </li>
 
             </c:forEach>

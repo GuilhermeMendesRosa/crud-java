@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Editar</h1>
-    <form action="<c:url value="/editarEmpresa?id=${empresa.id}"/>" method="post">
+    <form action="<c:url value="/entrada?acao=EditarEmpresa&id=${empresa.id}"/>" method="post">
         <input type="text" placeholder="nome" name="nome" required value="${empresa.nome}">
         <br>
         <input type="date" name="dataDeAbertura" required value="${empresa.dataDeAbertura}">

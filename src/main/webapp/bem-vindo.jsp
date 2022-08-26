@@ -11,6 +11,6 @@
 <a href="<c:url value="/novaEmpresa.jsp"/>">Adicionar empresa</a>
 <br>
 <br>
-<a href="<c:url value="/listarEmpresas"/>">Listar empresas</a>
+<a href="<c:url value="/entrada?acao=ListarEmpresas"/>">Listar empresas</a>
 </body>
 </html>

@@ -1,11 +1,9 @@
-package br.com.alura.manager.servlet;
+package br.com.alura.manager.acao;
 
 import br.com.alura.manager.modelo.Banco;
 import br.com.alura.manager.modelo.Empresa;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -13,10 +11,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@WebServlet(name = "EditarEmpresaServlet", value = "/editarEmpresa")
-public class EditarEmpresaServlet extends HttpServlet {
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class EditarEmpresa {
+    public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Banco db = new Banco();
         Integer id = Integer.valueOf(request.getParameter("id"));
         Empresa empresa = db.buscaEmpresaPelaId(id);
@@ -30,7 +26,7 @@ public class EditarEmpresaServlet extends HttpServlet {
             throw new ServletException(e);
         }
         empresa.setDataDeAbertura(dataDeAbertura);
-        response.sendRedirect("listarEmpresas");
+        response.sendRedirect("entrada?acao=ListarEmpresas");
 
     }
 }
