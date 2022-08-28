@@ -13,21 +13,32 @@ public class UnicaEntradaServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String parametroAcao = req.getParameter("acao");
 
-        if (parametroAcao.equals("ListarEmpresas")) {
-            ListarEmpresas acao = new ListarEmpresas();
-            acao.executa(req, resp);
-        } else if (parametroAcao.equals("RemoverEmpresa")) {
-            RemoverEmpresa acao = new RemoverEmpresa();
-            acao.executa(req, resp);
-        } else if (parametroAcao.equals("MostrarEmpresa")) {
-            MostrarEmpresa acao = new MostrarEmpresa();
-            acao.executa(req, resp);
-        } else if (parametroAcao.equals("EditarEmpresa")) {
-            EditarEmpresa acao = new EditarEmpresa();
-            acao.executa(req, resp);
-        } else if (parametroAcao.equals("NovaEmpresa")) {
-            NovaEmpresa acao = new NovaEmpresa();
-            acao.executa(req, resp);
+        String nomeDaClasse = "br.com.alura.manager.acao." + parametroAcao;
+
+        Class classe = null;
+        try {
+            classe = Class.forName(nomeDaClasse);
+        } catch (ClassNotFoundException e) {
+            throw new ServletException(e);
+        }
+        Acao acao = null;
+        try {
+            acao = (Acao) classe.newInstance();
+        } catch (InstantiationException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new ServletException(e);
+        }
+
+        String nome = acao.executa(req, resp);
+
+        String[] tipoEEndereco = nome.split(":");
+
+        if (tipoEEndereco[0].equals("forward")) {
+            RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/view/"+tipoEEndereco[1]);
+            rd.forward(req, resp);
+        } else if (tipoEEndereco[0].equals("redirect")) {
+            resp.sendRedirect(tipoEEndereco[1]);
         }
 
     }

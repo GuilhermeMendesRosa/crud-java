@@ -11,8 +11,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class NovaEmpresa {
-    public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class NovaEmpresa implements Acao {
+    public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("Cadastrando Nova Empresa");
         String nomeEmpresa = request.getParameter("nome");
         String stringData = request.getParameter("dataDeAbertura");
@@ -33,7 +33,9 @@ public class NovaEmpresa {
         Banco db = new Banco();
         db.cadastra(empresa);
 
-        response.sendRedirect("entrada?acao=ListarEmpresas");
+//        response.sendRedirect("entrada?acao=ListarEmpresas");
+
+        return "redirect:entrada?acao=ListarEmpresas";
 
     }
 }

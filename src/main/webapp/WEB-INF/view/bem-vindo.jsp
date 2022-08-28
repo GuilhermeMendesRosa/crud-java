@@ -8,7 +8,7 @@
 
 <h1>CRUD</h1>
 
-<a href="<c:url value="/novaEmpresa.jsp"/>">Adicionar empresa</a>
+<a href="<c:url value="/WEB-INF/view/novaEmpresa.jspvaEmpresa.jsp"/>">Adicionar empresa</a>
 <br>
 <br>
 <a href="<c:url value="/entrada?acao=ListarEmpresas"/>">Listar empresas</a>
