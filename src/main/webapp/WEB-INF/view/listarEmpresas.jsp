@@ -9,6 +9,9 @@
     <title>Nova Empresa</title>
 </head>
     <body>
+    <c:import url="logout-parcial.jsp"/>
+    <h1>Usuario: ${usuarioLogado.login}</h1>
+    <h2>Listar Empresas</h2>
         <ul>
             <c:forEach items="${empresas}" var="empresa">
                 <li>${empresa.nome} - <fmt:formatDate value="${empresa.dataDeAbertura}" pattern="dd/MM/yyyy"/>

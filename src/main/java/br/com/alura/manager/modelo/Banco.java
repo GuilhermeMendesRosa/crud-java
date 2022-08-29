@@ -7,6 +7,7 @@ import java.util.List;
 public class Banco {
     //Objeto para simular um banco de dados
     private static List<Empresa> empresas = new ArrayList<Empresa>();
+    private static List<Usuario> usuarios = new ArrayList<Usuario>();
     private static  Integer chaveSequencial = 1;
 
     static {
@@ -18,6 +19,16 @@ public class Banco {
         empresa2.setId(chaveSequencial++);
         empresas.add(empresa1);
         empresas.add(empresa2);
+
+        Usuario u1 = new Usuario();
+        u1.setLogin("guilherme");
+        u1.setSenha("12345");
+        Usuario u2 = new Usuario();
+        u2.setLogin("guilherme");
+        u2.setSenha("12345");
+
+        usuarios.add(u1);
+        usuarios.add(u2);
     }
 
     public void cadastra(Empresa empresa) {
@@ -53,4 +64,13 @@ public class Banco {
         return null;
 
     }
+
+    public Usuario existeUsuario(String login, String senha) {
+        for (Usuario usuario : usuarios) {
+            if (usuario.ehIgual(login, senha)) {
+                return usuario;
+            }
+        }
+        return null;
+}
 }
