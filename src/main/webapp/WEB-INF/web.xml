@@ -4,5 +4,35 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <displayname>gerenciador</displayname>
+    <filter>
+        <filter-name>MF</filter-name>
+        <filter-class>br.com.alura.manager.servlet.MonitoramentoFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>MF</filter-name>
+        <url-pattern>/entrada</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>AF</filter-name>
+        <filter-class>br.com.alura.manager.servlet.AutorizacaoFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>AF</filter-name>
+        <url-pattern>/entrada</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>CF</filter-name>
+        <filter-class>br.com.alura.manager.servlet.ControladorFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>CF</filter-name>
+        <url-pattern>/entrada</url-pattern>
+    </filter-mapping>
+
 
 </web-app>
